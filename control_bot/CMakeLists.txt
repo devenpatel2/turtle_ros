@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(control)
+project(control_bot)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -97,7 +97,7 @@ find_package(catkin REQUIRED roscpp std_msgs geometry_msgs)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES control
+#  LIBRARIES control_bot
   CATKIN_DEPENDS roscpp std_msgs geometry_msgs
 #  DEPENDS system_lib
 )
@@ -114,14 +114,14 @@ add_definitions( ${catkin_DEFINITIONS} )
 add_definitions(-std=c++14)
 
 ## Declare a C++ library
- add_library(control
+ add_library(control_bot
    src/control.cpp
  )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
- add_dependencies(control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+ add_dependencies(control_bot ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
  add_executable(control_loco src/control.cpp)
@@ -150,7 +150,7 @@ target_link_libraries(control_loco
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS control control_loco
+# install(TARGETS control_bot control_loco
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
