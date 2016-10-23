@@ -3,16 +3,20 @@
 #include "geometry_msgs/Twist.h"
 #include <boost/bind.hpp>
 
+
 void keyboardCallback(const std_msgs::Char::ConstPtr& msg, ros::Publisher pub){ 
-    ROS_INFO(" key recieved %c", msg->data);
     switch(msg->data){
         case 'C' : //left arrow
+            ROS_INFO("left arrow");
             break;
         case 'A' : //up arrow
+            ROS_INFO("up arrow"); 
             break;
         case 'D' ://right arrow
+            ROS_INFO("right arrow"); 
             break;
         case 'B' : //down arrow
+            ROS_INFO("down arrow"); 
             break;
         default :
             break;

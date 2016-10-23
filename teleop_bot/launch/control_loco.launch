@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+    <node name="control" pkg="teleop_bot" type="control_loco" output="screen"/>
+</launch>

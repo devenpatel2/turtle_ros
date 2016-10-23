@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <launch>
-    <include file="$(find keyboard_input)/launch/keyboard.launch" />
-    <include file="$(find control)/launch/control_loco.launch"  /> 
+    <group ns = "turtle1">
+        <include file="$(find keyboard_input)/launch/keyboard.launch" />
+        <include file="$(find teleop_bot)/launch/control_loco.launch"  /> 
+    </group>
+    <node name = "turtle" pkg="turtlesim" type="turtlesim_node"/> 
 </launch>
