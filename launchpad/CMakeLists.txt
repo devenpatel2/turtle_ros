@@ -1,13 +1,14 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(control)
+project(launchpad)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED roscpp std_msgs geometry_msgs)
+find_package(catkin REQUIRED
+    roslaunch)
 
 ## System dependencies are found with CMake's conventions
- find_package(Boost REQUIRED COMPONENTS system)
+# find_package(Boost REQUIRED COMPONENTS system)
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -97,8 +98,8 @@ find_package(catkin REQUIRED roscpp std_msgs geometry_msgs)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES control
-  CATKIN_DEPENDS roscpp std_msgs geometry_msgs
+#  LIBRARIES launchpad
+#  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
 
@@ -109,31 +110,28 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
-include_directories(${catkin_INCLUDE_DIRS})
-add_definitions( ${catkin_DEFINITIONS} )
-add_definitions(-std=c++14)
 
 ## Declare a C++ library
- add_library(control
-   src/control.cpp
- )
+# add_library(launchpad
+#   src/${PROJECT_NAME}/launchpad.cpp
+# )
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
- add_dependencies(control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(launchpad ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Declare a C++ executable
- add_executable(control_loco src/control.cpp)
+# add_executable(launchpad_node src/launchpad_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(control_loco ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# add_dependencies(launchpad_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(control_loco
-   ${catkin_LIBRARIES}
- )
+# target_link_libraries(launchpad_node
+#   ${catkin_LIBRARIES}
+# )
 
 #############
 ## Install ##
@@ -150,7 +148,7 @@ target_link_libraries(control_loco
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS control control_loco
+# install(TARGETS launchpad launchpad_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -175,7 +173,7 @@ target_link_libraries(control_loco
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_control.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_launchpad.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

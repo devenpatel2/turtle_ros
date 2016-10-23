@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+    <include file="$(find keyboard_input)/launch/keyboard.launch" />
+    <include file="$(find control)/launch/control_loco.launch"  /> 
+</launch>
