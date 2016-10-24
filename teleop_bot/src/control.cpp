@@ -5,22 +5,30 @@
 
 
 void keyboardCallback(const std_msgs::Char::ConstPtr& msg, ros::Publisher pub){ 
+    geometry_msgs::Twist cmd_msg;
+
     switch(msg->data){
         case 'C' : //left arrow
-            ROS_INFO("left arrow");
+            ROS_INFO("right arrow");
+            cmd_msg.angular.z = -1; 
             break;
         case 'A' : //up arrow
             ROS_INFO("up arrow"); 
+            cmd_msg.linear.x = 1; 
             break;
         case 'D' ://right arrow
-            ROS_INFO("right arrow"); 
+            ROS_INFO("left arrow"); 
+            cmd_msg.angular.z = 1; 
             break;
         case 'B' : //down arrow
             ROS_INFO("down arrow"); 
+            cmd_msg.linear.x = -1; 
             break;
         default :
             break;
     }
+
+    pub.publish(cmd_msg);
 }
 
 int main(int argc, char **argv){
